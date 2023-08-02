@@ -1,7 +1,9 @@
 {
   "Discord Myself": "https://raw.githubusercontent.com/mrjeevs/Shortcuts/main/DiscordMyself/api.json",
+  "GamePigeon Scoreboard Tracker": "https://raw.githubusercontent.com/mrjeevs/Shortcuts/main/GamePigeonScoreboardTracker/api.json",
   "Get All Frames From Media": "https://raw.githubusercontent.com/mrjeevs/Shortcuts/main/GetAllFramesFromMedia/api.json",
   "Insert Line Breaks for Setup Questions": "https://raw.githubusercontent.com/mrjeevs/Shortcuts/main/InsertLineBreaksForSetupQuestions/api.json",
   "Sleep Time Calculator": "https://raw.githubusercontent.com/mrjeevs/Shortcuts/main/SleepTimeCalculator/api.json",
-  "Time Your Shortcut": "https://raw.githubusercontent.com/mrjeevs/Shortcuts/main/TimeYourShortcut/api.json"
+  "Time Your Shortcut": "https://raw.githubusercontent.com/mrjeevs/Shortcuts/main/TimeYourShortcut/api.json",
+  "Wallpaper Roulette": "https://raw.githubusercontent.com/mrjeevs/Shortcuts/main/WallpaperRoulette/api.json"
 }
