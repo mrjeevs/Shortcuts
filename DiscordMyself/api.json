@@ -1,6 +1,6 @@
 {
-  "Version": "1.3.3",
-  "URL": "https://www.icloud.com/shortcuts/d674dd6539604ea18e2a5d2c3a35feba",
-  "Notes": "→ Fixed an error where some URLs are uploaded as HTML files instead of the actual URL.\n→ Discord has recently upped the file limit for all free users to 25 MB, which I updated in the default settings.\n→ Switched back to RoutineHub API for future shortcut updates.\n→ Added DNG image type to unsupported image type extensions list.",
-  "Release": "06/01/23"
+    "Version": "1.3.3",
+    "URL": "https://www.icloud.com/shortcuts/d674dd6539604ea18e2a5d2c3a35feba",
+    "Notes": "→ Fixed an error where some URLs are uploaded as HTML files instead of the actual URL.\n→ Discord has recently upped the file limit for all free users to 25 MB, which I updated in the default settings.\n→ Switched back to RoutineHub API for future shortcut updates.\n→ Added DNG image type to unsupported image type extensions list.",
+    "Release": "06/01/23"
 }
