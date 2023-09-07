@@ -1,4 +1,4 @@
-[![Shortcut Banner](https://i.imgur.com/2qhc2Gg.png)](https://www.icloud.com/shortcuts/fa5c91f0d2de46c9af5b5b8d61b25848)
+[![Shortcut Banner](https://i.imgur.com/6q74a6q.png)](https://www.icloud.com/shortcuts/fa5c91f0d2de46c9af5b5b8d61b25848)
 
 
 ## Table of Contents
@@ -67,7 +67,7 @@ Below are the features you can expect from this shortcut.
 1. The scoreboard files are being stored on your iCloud Drive, so you will need to make sure you have space for that.
 2. Because the shortcut does a lot of CRUD (*create, read, update, delete*) operations on your scoreboard files, it requires **a lot** of permissions to make sure it's okay to do so (*specifically, a set of permissions for each menu option*). While it is initially annoying, the good news is as long as you tap **"Always Allow"** when the permission messages pop up, you won't be asked again in future runs. 👍
 3. Before inviting your friend to join the scoreboard, I would recommend designating one of you to be the **"recorder"** for the scoreboard. This is because you both might end up accidentally recording the same game if there was no prior communication on who should update the scoreboard. And as of `v1.0.0`, there is no way to delete game records off a scoreboard.
-4. If your friend has recently updated the scoreboard, it *may* up to a minute for the changes to get to you. 
+4. If your friend has recently updated the scoreboard, it *may* take up to a minute for the changes to get to you. 
 5. This shortcut is far from *perfect*, and is prone to errors (*some are irreversible*). That is, if you try to purposefully misuse the shortcut. This is because `Shortcuts` has limitations to error handling. In other words, it works **perfectly** fine if you use the shortcut as intended.
 
 
