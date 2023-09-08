@@ -1,6 +1,6 @@
 {
-    "Version": "1.0.0",
-    "URL": "https://www.icloud.com/shortcuts/5a34337daf4747368407d5c39932b1f9",
-    "Notes": "Initial release!",
-    "Release": "09/07/23"
+    "Version": "1.0.1",
+    "URL": "https://www.icloud.com/shortcuts/86fb31aec1e640f6ab42c30a4c7960a7",
+    "Notes": "→ Fixed bug where missing metadata caused auto-updater to not work properly",
+    "Release": "09/08/23"
 }
