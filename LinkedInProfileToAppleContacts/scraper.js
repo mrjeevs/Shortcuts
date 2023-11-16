@@ -21,7 +21,7 @@ function get_profile_picture_url() {
         ".pv-top-card-profile-picture__image.pv-top-card-profile-picture__image--show.evi-image.ember-view"
     );
     const profile_picture = profile_picture_element
-        ? profile_picture_element.getAttribute("src")
+        ? profile_picture_element.getAttribute("src").trim()
         : "";
     return profile_picture;
 }
@@ -31,8 +31,8 @@ function get_company() {
         ".artdeco-card.ember-view.relative.break-words.pb3.mt2 div#experience"
     ).parentElement;
 
-    let last_company_name = null;
-    let last_company_position = null;
+    let last_company_name = "";
+    let last_company_position = "";
 
     last_company = experience_element.querySelector("li");
     if (last_company) {
@@ -68,10 +68,11 @@ function get_company() {
 }
 
 function get_website_urls(element) {
-    const websites = [];
     const websites_list_element = element.querySelector("ul");
 
     if (websites_list_element) {
+        const websites = [];
+
         const url_elements = websites_list_element.querySelectorAll("a");
         const label_elements = websites_list_element.querySelectorAll("span");
 
@@ -79,10 +80,10 @@ function get_website_urls(element) {
             const url_element = url_elements[i];
             const label_element = label_elements[i];
 
-            const website_url = url_element.getAttribute("href");
+            const website_url = url_element.getAttribute("href").trim();
             const website_label = label_element.textContent
-                .trim()
                 .replace(/\(([^)]+)\)/, "$1")
+                .trim()
                 .toLowerCase();
 
             websites.push({
@@ -90,17 +91,30 @@ function get_website_urls(element) {
                 LABEL: website_label,
             });
         }
+
+        return websites;
     }
 
-    return websites;
+    return null;
 }
 
 function get_phone_number(element) {
-    const phone_number_element = element.querySelector("ul > li > span");
-    const phone_number = phone_number_element
-        ? phone_number_element.textContent.trim()
-        : "";
-    return phone_number;
+    const phone_number_element = element.querySelectorAll("ul > li > span");
+
+    if (phone_number_element) {
+        const number = phone_number_element
+            ? phone_number_element[0].textContent.trim()
+            : "";
+        const type = phone_number_element
+            ? phone_number_element[1].textContent
+                  .replace(/\(([^)]+)\)/, "$1")
+                  .trim()
+                  .toUpperCase()
+            : "";
+        return { NUMBER: number, TYPE: type };
+    }
+
+    return null;
 }
 
 function get_address(element) {

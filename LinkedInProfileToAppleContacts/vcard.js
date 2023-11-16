@@ -11,7 +11,9 @@ function createVCard(data) {
         TITLE: data.LAST_COMPANY_POSITION
             ? `TITLE:${data.LAST_COMPANY_POSITION}`
             : "",
-        TEL: data.PHONE ? `TEL:${data.PHONE}` : "",
+        TEL: data.PHONE
+            ? `TEL;type=${data.PHONE.TYPE}:${data.PHONE.NUMBER}`
+            : "",
         EMAIL: data.EMAIL ? `EMAIL:${data.EMAIL}` : "",
         URL: data.WEBSITES
             ? data.WEBSITES.map(
