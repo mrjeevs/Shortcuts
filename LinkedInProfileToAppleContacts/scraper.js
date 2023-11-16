@@ -234,5 +234,5 @@ async function main() {
     return linkedin_info;
 }
 
-// const LINKEDIN_INFO = await main();
+const LINKEDIN_INFO = await main();
 completion(LINKEDIN_INFO);
