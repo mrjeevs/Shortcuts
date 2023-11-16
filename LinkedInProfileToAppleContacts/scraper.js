@@ -259,6 +259,6 @@ async function main() {
 main().then((LINKEDIN_INFO) => {
     // Close contact window
     document.querySelector("[data-test-modal-close-btn]").click();
-    console.log(LINKEDIN_INFO);
-    // completion(LINKEDIN_INFO);
+    // console.log(LINKEDIN_INFO);
+    completion(LINKEDIN_INFO);
 });
