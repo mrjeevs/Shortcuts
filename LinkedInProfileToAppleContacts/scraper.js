@@ -1,6 +1,6 @@
 function get_linkedin_url() {
     let url = decodeURIComponent(window.location.href);
-    url = url.match("https://linkedin.com/in/([^/]+)/?")[0];
+    url = url.match(/https:\/\/www.linkedin.com\/in\/([^/]+)/)[0];
     return url;
 }
 
@@ -235,4 +235,4 @@ async function main() {
 }
 
 const LINKEDIN_INFO = await main();
-completion(LINKEDIN_INFO);
+// completion(LINKEDIN_INFO);
