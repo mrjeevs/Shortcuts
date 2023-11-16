@@ -20,10 +20,17 @@ function get_profile_picture_url() {
     const profile_picture_element = document.querySelector(
         ".pv-top-card-profile-picture__image.pv-top-card-profile-picture__image--show.evi-image.ember-view"
     );
-    const profile_picture = profile_picture_element
+    const my_profile_picture_element = document.querySelector(
+        ".evi-image.ember-view.profile-photo-edit__preview"
+    );
+
+    const profile_picture_url = profile_picture_element
         ? profile_picture_element.getAttribute("src").trim()
+        : my_profile_picture_element
+        ? my_profile_picture_element.getAttribute("src").trim()
         : "";
-    return profile_picture;
+
+    return profile_picture_url;
 }
 
 function get_company() {
@@ -252,6 +259,6 @@ async function main() {
 main().then((LINKEDIN_INFO) => {
     // Close contact window
     document.querySelector("[data-test-modal-close-btn]").click();
-    // console.log(LINKEDIN_INFO);
-    completion(LINKEDIN_INFO);
+    console.log(LINKEDIN_INFO);
+    // completion(LINKEDIN_INFO);
 });
