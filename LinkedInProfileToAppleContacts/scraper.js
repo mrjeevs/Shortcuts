@@ -132,7 +132,6 @@ function get_birthday(element) {
 }
 
 function get_connection_date(element) {
-    // Date of Connection
     const connected_date_element = element.querySelector("div > span");
     const connected_date = connected_date_element
         ? connected_date_element.textContent.trim()
@@ -140,7 +139,7 @@ function get_connection_date(element) {
     return connected_date;
 }
 
-async function waitForElementToExist(selector) {
+function waitForElementToExist(selector) {
     return new Promise((resolve) => {
         if (document.querySelector(selector)) {
             return resolve(document.querySelector(selector));
@@ -192,47 +191,53 @@ async function main() {
 
     // Click on the contact info button
     document.getElementById("top-card-text-details-contact-info").click();
-    const contact_info_element = await waitForElementToExist(
+
+    return waitForElementToExist(
         ".pv-profile-section__section-info.section-info"
-    );
+    ).then((contact_info_element) => {
+        // Loop through contact info
+        Array.from(contact_info_element.children).forEach((element) => {
+            const contact_header_element = element.querySelector(
+                ".pv-contact-info__header"
+            );
+            const contact_header = contact_header_element
+                ? contact_header_element.textContent.trim()
+                : "";
 
-    // Loop through contact info
-    Array.from(contact_info_element.children).forEach((element) => {
-        const contact_header_element = element.querySelector(
-            ".pv-contact-info__header"
-        );
-        const contact_header = contact_header_element
-            ? contact_header_element.textContent.trim()
-            : "";
+            switch (contact_header) {
+                case "Website":
+                case "Websites":
+                    linkedin_info.WEBSITES = get_website_urls(element);
+                    break;
+                case "Phone":
+                    linkedin_info.PHONE = get_phone_number(element);
+                    break;
+                case "Address":
+                    linkedin_info.ADDRESS = get_address(element);
+                    break;
+                case "Email":
+                    linkedin_info.EMAIL = get_email(element);
+                    break;
+                case "Twitter":
+                    linkedin_info.TWITTER_URL = get_twitter_url(element);
+                    break;
+                case "Birthday":
+                    linkedin_info.BIRTHDAY = get_birthday(element);
+                    break;
+                case "Connected":
+                    linkedin_info.CONNECTION_DATE =
+                        get_connection_date(element);
+                    break;
+            }
+        });
 
-        switch (contact_header) {
-            case "Website":
-            case "Websites":
-                linkedin_info.WEBSITES = get_website_urls(element);
-                break;
-            case "Phone":
-                linkedin_info.PHONE = get_phone_number(element);
-                break;
-            case "Address":
-                linkedin_info.ADDRESS = get_address(element);
-                break;
-            case "Email":
-                linkedin_info.EMAIL = get_email(element);
-                break;
-            case "Twitter":
-                linkedin_info.TWITTER_URL = get_twitter_url(element);
-                break;
-            case "Birthday":
-                linkedin_info.BIRTHDAY = get_birthday(element);
-                break;
-            case "Connected":
-                linkedin_info.CONNECTION_DATE = get_connection_date(element);
-                break;
-        }
+        return linkedin_info;
     });
-
-    return linkedin_info;
 }
 
-const LINKEDIN_INFO = await main();
-// completion(LINKEDIN_INFO);
+main().then((LINKEDIN_INFO) => {
+    // Close contact window
+    document.querySelector("[data-test-modal-close-btn]").click();
+    // console.log(LINKEDIN_INFO);
+    completion(LINKEDIN_INFO);
+});
