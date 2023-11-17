@@ -1,6 +1,6 @@
 {
-    "Version": "1.0.1",
-    "URL": "https://www.icloud.com/shortcuts/86fb31aec1e640f6ab42c30a4c7960a7",
-    "Notes": "→ Fixed bug where missing metadata caused auto-updater to not work properly",
-    "Release": "09/08/23"
+    "Version": "1.1.0",
+    "URL": "https://www.icloud.com/shortcuts/691acb78d008427983641069e9a0ffe5",
+    "Notes": "→ Updated breaking JavaScript code to accommodate recent HTML changes for contact info on the LinkedIn website.\n→ Streamlined JavaScript code for improved organization\n→ Added the type of phone number in the contact information, if available\n→ Minor changes to the request body of the auto-updater.",
+    "Release": "11/17/23"
 }
