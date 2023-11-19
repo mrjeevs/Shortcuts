@@ -213,47 +213,43 @@ async function main() {
     // Click on the contact info button
     document.getElementById("top-card-text-details-contact-info").click();
 
-    return waitForElementToExist(
+    const contact_info_element = await waitForElementToExist(
         ".pv-profile-section__section-info.section-info"
-    ).then((contact_info_element) => {
-        // Loop through contact info
-        Array.from(contact_info_element.children).forEach((element) => {
-            const contact_header_element = element.querySelector(
-                ".pv-contact-info__header"
-            );
-            const contact_header = contact_header_element
-                ? contact_header_element.textContent.trim()
-                : "";
+    );
+    // Loop through contact info
+    Array.from(contact_info_element.children).forEach((element) => {
+        const contact_icon_element = element.querySelector(
+            ".pv-contact-info__contact-icon"
+        );
+        const contact_icon_name = contact_icon_element
+            ? contact_icon_element.getAttribute("data-test-icon").trim()
+            : "";
 
-            switch (contact_header) {
-                case "Website":
-                case "Websites":
-                    linkedin_info.WEBSITES = get_website_urls(element);
-                    break;
-                case "Phone":
-                    linkedin_info.PHONE = get_phone_number(element);
-                    break;
-                case "Address":
-                    linkedin_info.ADDRESS = get_address(element);
-                    break;
-                case "Email":
-                    linkedin_info.EMAIL = get_email(element);
-                    break;
-                case "Twitter":
-                    linkedin_info.TWITTER_URL = get_twitter_url(element);
-                    break;
-                case "Birthday":
-                    linkedin_info.BIRTHDAY = get_birthday(element);
-                    break;
-                case "Connected":
-                    linkedin_info.CONNECTION_DATE =
-                        get_connection_date(element);
-                    break;
-            }
-        });
-
-        return linkedin_info;
+        switch (contact_icon_name) {
+            case "link-medium":
+                linkedin_info.WEBSITES = get_website_urls(element);
+                break;
+            case "phone-handset-medium":
+                linkedin_info.PHONE = get_phone_number(element);
+                break;
+            case "location-marker-medium":
+                linkedin_info.ADDRESS = get_address(element);
+                break;
+            case "envelope-medium":
+                linkedin_info.EMAIL = get_email(element);
+                break;
+            case "twitter-solid":
+                linkedin_info.TWITTER_URL = get_twitter_url(element);
+                break;
+            case "calendar-medium":
+                linkedin_info.BIRTHDAY = get_birthday(element);
+                break;
+            case "people-medium":
+                linkedin_info.CONNECTION_DATE = get_connection_date(element);
+                break;
+        }
     });
+    return linkedin_info;
 }
 
 main().then((LINKEDIN_INFO) => {
