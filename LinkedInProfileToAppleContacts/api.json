@@ -1,6 +1,6 @@
 {
-    "Version": "1.1.0",
-    "URL": "https://www.icloud.com/shortcuts/691acb78d008427983641069e9a0ffe5",
-    "Notes": "→ Updated breaking JavaScript code to accommodate recent HTML changes for contact info on the LinkedIn website.\n→ Streamlined JavaScript code for improved organization\n→ Added the type of phone number in the contact information, if available\n→ Minor changes to the request body of the auto-updater.",
-    "Release": "11/17/23"
+    "Version": "1.2.0",
+    "URL": "https://www.icloud.com/shortcuts/ab8fac4428af4634bd64b247004c5ae9",
+    "Notes": "→ Revamped JavaScript code for universal compatibility with the LinkedIn website.\n→ Implemented support for middle names in user profiles.\n→ Optimized scraper code for enhanced structural robustness, reducing vulnerability to potential future errors.",
+    "Release": "01/06/24"
 }
