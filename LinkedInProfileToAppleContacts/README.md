@@ -1,5 +1,4 @@
-[![Shortcut Banner](https://i.imgur.com/xPYKbJo.png)](https://www.icloud.com/shortcuts/691acb78d008427983641069e9a0ffe5)
-
+[![Shortcut Banner](https://i.imgur.com/xPYKbJo.png)](https://www.icloud.com/shortcuts/ab8fac4428af4634bd64b247004c5ae9)
 
 ## Table of Contents
 
@@ -16,8 +15,7 @@
 
 The **LinkedIn Profile To Apple Contact** shortcut allows you to convert any LinkedIn profile into an Apple Contact on your device, by grabbing the following contact information from LinkedIn, **if it's available to you**:
 
-- First Name
-- Last Name
+- Full Name
 - Profile Picture
 - Phone Number
 - Email
