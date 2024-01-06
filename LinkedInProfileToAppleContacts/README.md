@@ -1,5 +1,4 @@
-[![Shortcut Banner](https://i.imgur.com/xPYKbJo.png)](https://www.icloud.com/shortcuts/86fb31aec1e640f6ab42c30a4c7960a7)
-
+[![Shortcut Banner](https://i.imgur.com/xPYKbJo.png)](https://www.icloud.com/shortcuts/ab8fac4428af4634bd64b247004c5ae9)
 
 ## Table of Contents
 
@@ -14,10 +13,9 @@
 
 ## How It Works
 
-The **LinkedIn Profile To Apple Contact** shortcut allows you to convert any LinkedIn profile into a Apple Contact on your device, by grabbing the following contact information from LinkedIn, **if it's available to you**:
+The **LinkedIn Profile To Apple Contact** shortcut allows you to convert any LinkedIn profile into an Apple Contact on your device, by grabbing the following contact information from LinkedIn, **if it's available to you**:
 
-- First Name
-- Last Name
+- Full Name
 - Profile Picture
 - Phone Number
 - Email
@@ -38,12 +36,12 @@ Here's how to use this shortcut:
 4. Go to your connection's LinkedIn profile page.
 5. Tap on the [`Share Sheet`](https://i.imgur.com/KDyO3ny.png) icon.
 6. Run the `LinkedIn Profile To Apple Contact` shortcut.
-7. All contact details will pop up in *Quick Look*, as an Apple Contact. If you like what you see, go ahead and click on the `Share Sheet` icon on the bottom left.
-8. Share the contact to the `Apple Contacts` app.
+7. All contact details will pop up in *Quick Look*, as an Apple Contact. If you like what you see, click on the `Share Sheet` icon on the bottom left.
+8. Share the contact with the `Apple Contacts` app.
 9. Tap `Done` on the *Quick Look* view to see the `Apple Contacts` confirmation screen.
 10. Tap `Save` on the top right.
 
-If you follow all steps correctly, your LinkedIn connection should be saved as an Apple Contact now, with all relevant details added!
+If you followed all the steps correctly, your LinkedIn connection should be saved as an Apple Contact now, with all relevant details added!
 
 
 ## Prerequisites
@@ -58,14 +56,14 @@ If you follow all steps correctly, your LinkedIn connection should be saved as a
 
 ## Conclusion
 
-And that's it! Feel free to leave any [issues](https://github.com/MrJeevs/Shortcuts/issues/new/choose) if you happen to run into unexpected errors, looking for improvements, or even let me know how it's working for you! More than happy to hear any feedback! You can also DM me on [Reddit](https://www.reddit.com/user/MisterJeevs) for feedback. If you prefer not to create an account or stay anonymous, submit your feedback through this [Google form](https://forms.gle/Amsoh4cFA8mJq1ue7).
+And that's it! Feel free to leave any [issues](https://github.com/MrJeevs/Shortcuts/issues/new/choose) if you happen to run into unexpected errors, looking for improvements, or even let me know how it's working for you! I am more than happy to hear any feedback! You can also DM me on [Reddit](https://www.reddit.com/user/MisterJeevs) for feedback. If you prefer not to create an account or stay anonymous, submit your feedback through this [Google form](https://forms.gle/Amsoh4cFA8mJq1ue7).
 
 
 ## Auto-Updater
 
 This shortcut is powered by [UpdateKit API](https://www.mikebeas.com/updatekit-api/v1). UpdateKit API is not another standalone shortcut updater but rather one that is integrated into the shortcut itself. This means installing another shortcut is unnecessary to check for updates! The updates come to you!
 
-The Auto-Updater will only check half the time whether there is a new update. If your device is offline, the Auto-Updater will not run at all. It checks this by verifying your device's current IP address. In other words, if your device has an IP address, it means you are connected to the Internet.
+The Auto-Updater will only check whether there is a new update half the time. If your device is offline, the Auto-Updater will not run at all. It checks this by verifying your device's current IP address. In other words, if your device has an IP address, it means you are connected to the Internet.
 
 Whenever a new update is received, it will prompt you to either **Install** or **Skip** the update. If you choose to **Skip** the update, the shortcut will still run as intended.
 
