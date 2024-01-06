@@ -5,14 +5,20 @@ function createVCard(data) {
         PHOTO: data.PROFILE_PICTURE
             ? `PHOTO;ENCODING=b:${data.PROFILE_PICTURE}`
             : "",
-        N: `N:${data.LAST_NAME};${data.FIRST_NAME};;;`,
-        FN: `FN:${data.FIRST_NAME} ${data.LAST_NAME}`,
+        N: `N:${data.LAST_NAME};${data.FIRST_NAME};${
+            data.MIDDLE_NAME ? data.MIDDLE_NAME : ""
+        };;`,
+        FN: `FN:${data.FIRST_NAME} ${
+            data.MIDDLE_NAME ? data.MIDDLE_NAME : ""
+        } ${data.LAST_NAME}`,
         ORG: data.LAST_COMPANY_NAME ? `ORG:${data.LAST_COMPANY_NAME}` : "",
         TITLE: data.LAST_COMPANY_POSITION
             ? `TITLE:${data.LAST_COMPANY_POSITION}`
             : "",
         TEL: data.PHONE
-            ? `TEL;type=${data.PHONE.TYPE}:${data.PHONE.NUMBER}`
+            ? `TEL;type=${
+                  data.PHONE.TYPE === "MOBILE" ? "CELL" : data.PHONE.TYPE
+              };type=VOICE;type=pref:${data.PHONE.NUMBER}`
             : "",
         EMAIL: data.EMAIL ? `EMAIL:${data.EMAIL}` : "",
         URL: data.WEBSITES

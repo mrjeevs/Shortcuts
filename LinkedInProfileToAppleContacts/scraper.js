@@ -1,77 +1,80 @@
 function get_linkedin_url() {
-    let url = decodeURIComponent(window.location.href);
-    url = url.match(/https:\/\/www.linkedin.com\/in\/([^/]+)/)[0];
+    let url = decodeURIComponent(window.location.href); // For names with non-English characters
+    url = url.match(/https:\/\/www.linkedin.com\/in\/([^/]+)/)[0]; // Remove query parameters
     return url;
 }
 
 function get_name() {
-    const full_name_element = document.querySelector(
-        ".text-heading-xlarge.inline.t-24.v-align-middle.break-words"
-    );
+    const full_name_element = document.querySelector(".text-heading-xlarge");
     const full_name = full_name_element
         ? full_name_element.textContent.trim().split(" ")
-        : "";
-    const first_name = full_name ? full_name[0] : "";
-    const last_name = full_name ? full_name[1] : "";
-    return [first_name, last_name];
+        : [""];
+    const first_name = full_name[0];
+    const last_name = full_name[full_name.length - 1];
+    const middle_name =
+        full_name.length > 2 ? full_name.slice(1, -1).join(" ") : null;
+    return [first_name, middle_name, last_name];
 }
 
-function get_profile_picture_url() {
+async function get_profile_picture_url() {
     const profile_picture_element = document.querySelector(
-        ".pv-top-card-profile-picture__image.pv-top-card-profile-picture__image--show.evi-image.ember-view"
-    );
-    const my_profile_picture_element = document.querySelector(
-        ".evi-image.ember-view.profile-photo-edit__preview"
+        "main > section button > img"
     );
 
-    const profile_picture_url = profile_picture_element
-        ? profile_picture_element.getAttribute("src").trim()
-        : my_profile_picture_element
-        ? my_profile_picture_element.getAttribute("src").trim()
-        : "";
+    // Check if the profile picture is the default image
+    if (
+        profile_picture_element &&
+        profile_picture_element
+            .getAttribute("src")
+            .trim()
+            .startsWith("data:image")
+    ) {
+        return null;
+    }
+
+    const profile_picture_button = profile_picture_element.parentElement;
+    profile_picture_button.click();
+    const bigger_profile_picture_element = await waitForElementToExist(
+        "#artdeco-modal-outlet img"
+    );
+
+    const profile_picture_url = bigger_profile_picture_element
+        ? bigger_profile_picture_element.getAttribute("src").trim()
+        : null;
 
     return profile_picture_url;
 }
 
 function get_company() {
-    let experience_element = document.querySelector(
-        ".artdeco-card.ember-view.relative.break-words.pb3.mt2 div#experience"
-    ).parentElement;
+    const experience_div_element = document.querySelector(
+        "main > section > div#experience"
+    );
 
-    let last_company_name = "";
-    let last_company_position = "";
-
-    last_company = experience_element.querySelector("li");
-    if (last_company) {
-        if (last_company.querySelector(".pvs-entity__path-node")) {
-            const last_company_name_element =
-                last_company.querySelector("div > span");
-            const last_company_position_element = last_company
-                .querySelector("li")
-                .querySelector("span[aria-hidden=true]");
-
-            last_company_name = last_company_name_element
-                ? last_company_name_element.textContent.trim()
-                : "";
-            last_company_position = last_company_position_element
-                ? last_company_position_element.textContent.trim()
-                : "";
-        } else {
-            const last_company_name_element =
-                last_company.querySelector("div > span > span");
-            const last_company_position_element =
-                last_company.querySelector("div > span");
-
-            last_company_name = last_company_name_element
-                ? last_company_name_element.textContent.trim().split(" · ")[0]
-                : "";
-            last_company_position = last_company_position_element
-                ? last_company_position_element.textContent.trim()
-                : "";
-        }
+    if (!experience_div_element) {
+        return [null, null];
     }
 
-    return [last_company_name, last_company_position];
+    const experience_element = experience_div_element.parentElement;
+
+    let latest_company_name = "";
+    let latest_company_position = "";
+
+    const latest_company = experience_element.querySelector("li");
+    if (latest_company) {
+        const latest_company_name_element =
+            latest_company.querySelector("div > span > span");
+        const latest_company_position_element =
+            latest_company.querySelector("div > span");
+
+        latest_company_name = latest_company_name_element
+            ? latest_company_name_element.textContent.trim().split(" · ")[0]
+            : null;
+        latest_company_position = latest_company_position_element
+            ? latest_company_position_element.textContent.trim()
+            : null;
+    }
+
+    return [latest_company_name, latest_company_position];
 }
 
 function get_website_urls(element) {
@@ -126,13 +129,13 @@ function get_phone_number(element) {
 
 function get_address(element) {
     const address_element = element.querySelector("div > a");
-    const address = address_element ? address_element.textContent.trim() : "";
+    const address = address_element ? address_element.textContent.trim() : null;
     return address;
 }
 
 function get_email(element) {
     const email_element = element.querySelector("div > a");
-    const email = email_element ? email_element.textContent.trim() : "";
+    const email = email_element ? email_element.textContent.trim() : null;
     return email;
 }
 
@@ -140,7 +143,7 @@ function get_twitter_url(element) {
     const twitter_element = element.querySelector("ul > li > a");
     const twitter_url = twitter_element
         ? twitter_element.getAttribute("href").trim()
-        : "";
+        : null;
     return twitter_url;
 }
 
@@ -148,7 +151,7 @@ function get_birthday(element) {
     const birthday_element = element.querySelector("div > span");
     const birthday = birthday_element
         ? birthday_element.textContent.trim()
-        : "";
+        : null;
     return birthday;
 }
 
@@ -156,7 +159,7 @@ function get_connection_date(element) {
     const connected_date_element = element.querySelector("div > span");
     const connected_date = connected_date_element
         ? connected_date_element.textContent.trim()
-        : "";
+        : null;
     return connected_date;
 }
 
@@ -185,6 +188,7 @@ async function main() {
     const linkedin_info = {
         PROFILE_PICTURE_URL: null,
         LAST_NAME: null,
+        MIDDLE_NAME: null,
         FIRST_NAME: null,
         LAST_COMPANY_NAME: null,
         LAST_COMPANY_POSITION: null,
@@ -200,27 +204,27 @@ async function main() {
 
     linkedin_info.LINKEDIN_URL = get_linkedin_url();
 
-    const [first_name, last_name] = get_name();
-    linkedin_info.FIRST_NAME = first_name;
-    linkedin_info.LAST_NAME = last_name;
+    [
+        linkedin_info.FIRST_NAME,
+        linkedin_info.MIDDLE_NAME,
+        linkedin_info.LAST_NAME,
+    ] = get_name();
 
-    linkedin_info.PROFILE_PICTURE_URL = get_profile_picture_url();
+    linkedin_info.PROFILE_PICTURE_URL = await get_profile_picture_url();
 
-    const [last_company_name, last_company_position] = get_company();
-    linkedin_info.LAST_COMPANY_NAME = last_company_name;
-    linkedin_info.LAST_COMPANY_POSITION = last_company_position;
+    [linkedin_info.LAST_COMPANY_NAME, linkedin_info.LAST_COMPANY_POSITION] =
+        get_company();
 
     // Click on the contact info button
     document.getElementById("top-card-text-details-contact-info").click();
 
     const contact_info_element = await waitForElementToExist(
-        ".pv-profile-section__section-info.section-info"
+        "#artdeco-modal-outlet section > div"
     );
+
     // Loop through contact info
     Array.from(contact_info_element.children).forEach((element) => {
-        const contact_icon_element = element.querySelector(
-            ".pv-contact-info__contact-icon"
-        );
+        const contact_icon_element = element.querySelector("svg");
         const contact_icon_name = contact_icon_element
             ? contact_icon_element.getAttribute("data-test-icon").trim()
             : "";
@@ -249,12 +253,13 @@ async function main() {
                 break;
         }
     });
+
     return linkedin_info;
 }
 
 main().then((LINKEDIN_INFO) => {
     // Close contact window
     document.querySelector("[data-test-modal-close-btn]").click();
-    // console.log(LINKEDIN_INFO);
-    completion(LINKEDIN_INFO);
+    console.log(LINKEDIN_INFO);
+    // completion(LINKEDIN_INFO);
 });
