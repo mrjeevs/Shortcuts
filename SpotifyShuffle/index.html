@@ -109,11 +109,17 @@
         const authCode = urlParams.get('code');
 
         // Set the value of the codeField
-        const codeField = $("#authCode")[0];
-        codeField.value = authCode;
+        const codeField = $("#authCode");
+        codeField.val(authCode);
 
         // Resize the codeField to fit the code
-        codeField.style.height = (codeField.scrollHeight + 3) + "px"; // +3 to account for padding
+        codeField.height(codeField[0].scrollHeight + 3); // +3 to account for padding
+
+        // Resize the codeField when the window is resized
+        $(window).on('resize', function() {
+          codeField.height('auto');
+          codeField.height(codeField[0].scrollHeight + 3);
+        });
       });
     </script>
   </body>
