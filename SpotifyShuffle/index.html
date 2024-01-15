@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Spotify Shuffle Callback</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #121212;
+        margin: 5%;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        padding: 5%;
+        background-color: #1E1E1E;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+      }
+
+      #spotifyLogo {
+        width: 75%;
+        height: auto;
+      }
+
+      h2 {
+        color: #1DB954;
+        font-size: 5cqw;
+      }
+
+      #authCode {
+        border: 1px solid #303030;
+        border-radius: 15px;
+        font-size: 4cqw;
+        background-color: #303030;
+        color: #fff;
+        padding: 3%;
+        width: 100%;
+        resize: none;
+        overflow: auto;
+      }
+
+      #copyButtonContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5%;
+      }
+
+      #copyButton {
+        background-color: #1DB954;
+        color: #fff;
+        border: none;
+        padding: 5%;
+        border-radius: 1cqw;
+        cursor: pointer;
+        font-size: 3cqw;
+        white-space: nowrap;
+      }
+
+      #checkmark {
+        margin-bottom: 2.4%;
+        font-size: 7.2cqw;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="Spotify_Logo_RGB_Green.png" alt="Spotify Logo" id="spotifyLogo">
+      <h2>Authorization Code</h2>
+      <textarea id="authCode" readonly></textarea>
+      <div id="copyButtonContainer">
+        <button onclick="copyCodeToClipboard()" id="copyButton"><strong>Copy to Clipboard</strong></button>
+        <span id="checkmark">&#x2705;</span>
+      </div>
+    </div>
+
+    <script>
+      function copyCodeToClipboard() {
+        // Function to copy code to clipboard and show checkmark
+        $("#authCode")[0].select();
+        document.execCommand("copy");
+        showCheckmark();
+      }
+
+      function showCheckmark() {
+        // Function to show checkmark
+        const checkmark = $("#checkmark")[0];
+        checkmark.style.display = "inline";
+        setTimeout(function() {
+          checkmark.style.display = "none";
+        }, 2000); // Hide checkmark after 2 seconds
+      }
+
+      $(document).ready(() => {
+        // Use URLSearchParams to get query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const authCode = urlParams.get('code');
+
+        // Set the value of the codeField
+        const codeField = $("#authCode")[0];
+        codeField.value = authCode;
+
+        // Resize the codeField to fit the code
+        codeField.style.height = (codeField.scrollHeight + 3) + "px"; // +3 to account for padding
+      });
+    </script>
+  </body>
+</html>
