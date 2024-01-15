@@ -113,12 +113,12 @@
         codeField.val(authCode);
 
         // Resize the codeField to fit the code
-        codeField.height(codeField[0].scrollHeight + 3); // +3 to account for padding
+        codeField.height(codeField[0].scrollHeight);
 
         // Resize the codeField when the window is resized
         $(window).on('resize', function() {
           codeField.height('auto');
-          codeField.height(codeField[0].scrollHeight + 3);
+          codeField.height(codeField[0].scrollHeight);
         });
       });
     </script>
