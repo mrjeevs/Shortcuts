@@ -12,5 +12,6 @@ Feel free to leave any feedback (*questions, bugs, features*) on my shortcuts! T
 - **[Insert Line Breaks for Setup Questions](https://github.com/mrjeevs/Shortcuts/tree/main/InsertLineBreaksForSetupQuestions)**: *Make your shortcut's setup questions multi-line.*
 - **[LinkedIn Profile To Apple Contacts](https://github.com/mrjeevs/Shortcuts/tree/main/LinkedInProfileToAppleContacts)**: *Transform connections into contacts simply!*
 - **[Sleep Time Calculator](https://github.com/mrjeevs/Shortcuts/tree/main/SleepTimeCalculator)**: *Get the perfect amount of sleep every night!*
+- **[Spotify Shuffle](https://github.com/mrjeevs/Shortcuts/tree/main/SpotifyShuffle)**: *Shuffle through any of your favorite artists, albums, or playlists on Spotify!*
 - **[Time Your Shortcut](https://github.com/mrjeevs/Shortcuts/tree/main/TimeYourShortcut)**: *See how fast your shortcuts run!*
 - **[Wallpaper Roulette](https://github.com/mrjeevs/Shortcuts/tree/main/WallpaperRoulette)**: *Elevate your device's aesthetic with random Unsplash wallpapers.*
