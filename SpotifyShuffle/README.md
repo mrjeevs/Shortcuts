@@ -26,7 +26,7 @@ It utilizes the Spotify API to initiate playback on your device, as there are no
 
 ## Benefits
 
--   Set up an automation with this shortcut! For example, a CarPlay automation that auto-plays music when you hop into your vehicle.
+-   Set up an automation with this shortcut! For example, a CarPlay automation that auto-plays music when you connect to your vehicle.
 -   Indecisive moments? Let the shortcut decide! Allow it to choose from your added music, when you're unsure, creating a delightful surprise every time.
 -   If you're in the mood only for a certain artist, album, or playlist, simply add only that to the shortcut and enjoy it on repeat!
 -   Easily update your music list on the fly. Whether you discover a new favorite or want to remove an old one, the shortcut lets you customize your music rotation easily.
