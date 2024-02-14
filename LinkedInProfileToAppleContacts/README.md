@@ -47,6 +47,8 @@ If you followed all the steps correctly, your LinkedIn connection should be save
 ## Prerequisites
 
 <img src="https://i.imgur.com/vmIJPX1.png" alt="download-safari-badge" height="75"/>
+<img src="https://i.imgur.com/fnRKF3O.png"/>
+
 
 
 ##  Demo
