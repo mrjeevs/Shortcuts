@@ -1,6 +1,6 @@
 {
-    "Version": "1.0.0",
-    "URL": "https://www.icloud.com/shortcuts/fa5c91f0d2de46c9af5b5b8d61b25848",
-    "Notes": "Initial release!",
-    "Release": "08/03/23"
+    "Version": "1.0.1",
+    "URL": "https://www.icloud.com/shortcuts/e0dcf24e5f3d45e2a134d6028dceed08",
+    "Notes": "Before updating to v1.0.1, some of the scoreboard files needed to be updated due to different naming conventions. After tapping \"Install\", it will redirect you to download the \"GST Updater\". Run it once, press \"Allow\" on any permissions, and then it will finally redirect you to the new version of GST. You can safely delete \"GST Updater\" afterward.",
+    "Release": "02/23/24"
 }
