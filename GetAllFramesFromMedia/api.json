@@ -1,6 +1,6 @@
 {
-    "Version": "1.0.1",
-    "URL": "https://www.icloud.com/shortcuts/badf4b03f2ac44df83e9329a414da77e",
-    "Notes": "→ Update the default save location to remove potential folder conflicts with other shortcuts.",
-    "Release": "12/28/22"
+    "Version": "2.0.0",
+    "URL": "https://routinehub.co/shortcut/13487/",
+    "Notes": "As of v2.0.0, there are some breaking changes that make this shortcut incompatible with the previous version. You need to re-download the shortcut from RoutineHub, and follow the new instructions in the \"Getting Started\" section.",
+    "Release": "02/23/24"
 }
