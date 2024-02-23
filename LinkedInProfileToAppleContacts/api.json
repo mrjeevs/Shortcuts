@@ -1,6 +1,6 @@
 {
-    "Version": "1.2.0",
-    "URL": "https://www.icloud.com/shortcuts/ab8fac4428af4634bd64b247004c5ae9",
-    "Notes": "→ Revamped JavaScript code for universal compatibility with the LinkedIn website.\n→ Implemented support for middle names in user profiles.\n→ Optimized scraper code for enhanced structural robustness, reducing vulnerability to potential future errors.",
-    "Release": "01/06/24"
+    "Version": "1.2.1",
+    "URL": "https://www.icloud.com/shortcuts/787da9fed5ea4d87a664b0c31bd8b982",
+    "Notes": "→ Optimized auto-updater for faster shortcut runs.\n→ Switched to RoutineHub API for updates.\n→ Updated metadata dictionary with new RoutineHub username.",
+    "Release": "02/23/24"
 }
